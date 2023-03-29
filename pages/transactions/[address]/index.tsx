@@ -64,7 +64,7 @@ export default function Transactions() {
     return (
         <section className={styles.frame}>
             <code className={styles.center}>From: {address}</code>
-            <code className={styles.italic}>Transactions operated on Ethereum, 
+            <code className={styles.italic}>Transactions operated on {block_explorer === 'Etherscan'? 'Ethereum':'Polygon'}, 
                <span className={styles.green}>limited to 100:</span>
             </code>
 
