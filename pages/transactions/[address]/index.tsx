@@ -18,7 +18,7 @@ const overrides = {
 //The below token contract address corresponds to USDT
 const tokenContractAddresses = ["0xdAC17F958D2ee523a2206206994597C13D831ec7"];
 
-export default function PostPage() {
+export default function Transactions() {
     const router = useRouter()
     const address = router.query.address as string
     const block_explorer = router.query.block_explorer as string

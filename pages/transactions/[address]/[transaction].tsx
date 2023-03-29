@@ -14,7 +14,7 @@ const overrides = {
 
   const alchemy = new AlchemyMultichainClient(defaultConfig, overrides);
 
-export default function CommentPage() {
+export default function TransactionDetails() {
     const router = useRouter()
     const transaction = router.query.transaction as string
     const amount = router.query.amount as string
