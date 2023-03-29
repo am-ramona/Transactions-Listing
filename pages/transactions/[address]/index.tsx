@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { Alchemy, Network, AssetTransfersCategory } from 'alchemy-sdk'
-import { AlchemyMultichainClient } from '../../../alchemy-multichain-client.ts'
+import { AlchemyMultichainClient } from '../../../alchemy-multichain-client'
 import styles from '@/styles/Home.module.css'
 
 const defaultConfig = {
