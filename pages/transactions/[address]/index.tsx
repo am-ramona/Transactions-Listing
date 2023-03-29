@@ -29,7 +29,7 @@ export default function PostPage() {
 
     useEffect(() => {
         getEthereumData(true).catch(console.error);
-    }, [address]);
+    }, [address, getEthereumData]);
 
     async function getEthereumData(order: boolean) {
         if (typeof address === 'undefined') return;

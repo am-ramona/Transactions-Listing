@@ -25,7 +25,7 @@ export default function CommentPage() {
 
     useEffect(() => {
         getTransactionReceipt(transaction).catch(console.error);
-    }, [transaction]);
+    }, [transaction, getTransactionReceipt]);
 
 
     async function getTransactionReceipt(hash: any) {
