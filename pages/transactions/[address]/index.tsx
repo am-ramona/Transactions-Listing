@@ -29,7 +29,7 @@ export default function Transactions() {
 
     useEffect(() => {
         getEthereumData(true).catch(console.error);
-    }, [address, getEthereumData]);
+    }, [address]);
 
     async function getEthereumData(order: boolean) {
         if (typeof address === 'undefined') return;

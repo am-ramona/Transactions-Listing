@@ -25,7 +25,7 @@ export default function TransactionDetails() {
 
     useEffect(() => {
         getTransactionReceipt(transaction).catch(console.error);
-    }, [transaction, getTransactionReceipt]);
+    }, [transaction]);
 
 
     async function getTransactionReceipt(hash: any) {
