@@ -49,7 +49,7 @@ export default function TransactionDetails() {
             </span>
             <p> Amount: {amount}</p>
             <p> Timestamp: {timestamp}</p>
-            <p> Status: { receipt && receipt.status === 1 ? 'Success': 'Failure'} </p>
+            <p> Status: { receipt && receipt.status === 1 ? 'Success' : (receipt && receipt.status === 0) ? 'Failure' : 'Loading' } </p>
             <p> Transaction fee: { receipt && receipt.effectiveGasPrice._hex }</p>
         </section>
     )
