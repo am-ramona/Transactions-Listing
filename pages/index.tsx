@@ -13,8 +13,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Biconomy Assessment</title>
-        <meta name="description" content="Assessment" />
+        <title>Playing with Data on Etherscan and Polygonscan</title>
+        <meta name="description" content="Amusement" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <main className={styles.main}>
