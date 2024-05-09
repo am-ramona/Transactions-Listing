@@ -103,7 +103,7 @@ const Transactions: React.FC = () => {
         <span className="text-green">limited to 100:</span>
       </code>
 
-      <main className="ml-0 sm:ml-[14px] p-card rounded-xl bg-[#64646400] border border-solid border-gray grid-in-c transition duration-200 hover:bg-[#6464641a] hover:border-[#c8c8c826] group">
+      <main className="ml-[14px] sm:p-card rounded-xl bg-[#64646400] border border-solid border-gray grid-in-c transition duration-200 hover:bg-[#6464641a] hover:border-[#c8c8c826] group">
         <div className="grid grid-cols-gridCard max-w-full md:grid-cols-[repeat(2, 50%)] *:sm:text-sm *:text-[3vw] *:inline-block *:transition *:transform *:motion-reduce:hover:transform-none *:group-hover:translate-x-1">
           <span> Amount </span>
           <span> Timestamp </span>

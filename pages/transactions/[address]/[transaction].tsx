@@ -52,11 +52,11 @@ const TransactionDetails: React.FC = () => {
     }, [transaction, block_explorer]);
 
     return (
-        <section className="p-01">
+        <section className="p-01Mobile sm:p-01">
             <code className="font-mono block font-medium flex justify-center items-center relative p-centerMobile text-[4vw] smallTablet:text-base sm:p-center">
                 Transaction details
             </code>
-            <span className="*:sm:text-sm *:text-[3vw]">
+            <span className="*:sm:text-sm *:text-[2.5vw]">
                 <span>
                     <a
                         href={

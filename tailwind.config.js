@@ -29,6 +29,7 @@ module.exports = {
       },
       padding: {
         '01': '0 1rem',
+        '01Mobile': '0 10px',
         'card': '1rem 1.2rem',
         'center': '4rem 0',
         'centerMobile': '2rem 0'
