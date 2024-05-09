@@ -1,3 +1,9 @@
+/* Since the app is of free design and non-scalable, I opt to use vanilla css for its 
+   lightweightness, performance, compatibility and flexibility.
+   However, for bigger projects that necessitate team collaboration, rapid development, 
+   scalability and consistency, libraries such TailwindCSS could be tailored for their need.
+*/
+
 .main {
   display: grid;
   align-items: center;
