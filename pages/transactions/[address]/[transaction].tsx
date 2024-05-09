@@ -65,7 +65,7 @@ const TransactionDetails: React.FC = () => {
                                 : "https://polygonscan.com/"
                         }
                         target="_blank"
-                        className="underline wrap break-words hover:text-green"
+                        className="underline hover:text-green"
                     >
                         {transaction}
                     </a>
