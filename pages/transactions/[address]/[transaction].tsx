@@ -27,6 +27,7 @@ const TransactionDetails: React.FC = () => {
     const amount = router.query.amount as string
     const timestamp = router.query.timestamp as string
     const block_explorer = router.query.block_explorer as string
+    const date = new Date(timestamp).toDateString();
 
     const [receipt, setReceipt] = useState<Receipt | null>()
 
@@ -55,7 +56,7 @@ const TransactionDetails: React.FC = () => {
                 <a href={block_explorer === 'Etherscan' ? 'https://etherscan.io/' : 'https://polygonscan.com/'} target="_blank" className={`${styles.underline} ${styles.wrap}`}>{transaction}</a>
             </span>
             <p> Amount: {amount}</p>
-            <p> Timestamp: {timestamp}</p>
+            <p> Timestamp: {date}</p>
             <p> Status: {receipt && receipt.status === 1 ? 'Success' : (receipt && receipt.status === 0) ? 'Failure' : 'Loading'} </p>
             <p> Transaction fee: {receipt && receipt.effectiveGasPrice._hex}</p>
         </section>
