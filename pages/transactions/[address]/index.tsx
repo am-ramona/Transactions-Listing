@@ -1,9 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { Alchemy, Network, AssetTransfersCategory } from "alchemy-sdk";
+import { Network, AssetTransfersCategory } from "alchemy-sdk";
 import { AlchemyMultichainClient } from "../../../alchemy-multichain-client";
 import styles from "@/styles/Home.module.css";
+
+interface Data {
+  transfers: Array<{
+    value: number | null,
+    hash: string,
+    metadata: {
+      blockTimestamp: string
+    }
+  }>,
+  pageKey?: string
+}
+
+interface Balance {
+  tokenBalances: Array<{ tokenBalance: string | null }>,
+  // [x: string | number | symbol]: unknown
+}
 
 const defaultConfig = {
   apiKey: "oC6F3KjezCjGO5b-S0Wn4uunajlNUB6A",
@@ -18,13 +34,13 @@ const alchemy = new AlchemyMultichainClient(defaultConfig, overrides);
 //The below token contract address corresponds to USDT
 const tokenContractAddresses = ["0xdAC17F958D2ee523a2206206994597C13D831ec7"];
 
-export default function Transactions() {
+const Transactions: React.FC = () => {
   const router = useRouter();
   const address = router.query.address as string;
   const block_explorer = router.query.block_explorer as string;
 
-  const [data, setData] = useState<any>({});
-  const [balance, setBalance] = useState<any>({});
+  const [data, setData] = useState<Data>();
+  const [balance, setBalance] = useState<Balance>({});
   const [order, setOrder] = useState<boolean>(true);
 
   useEffect(() => {
@@ -64,7 +80,7 @@ export default function Transactions() {
       const balance = await alchemy
         .forNetwork(network)
         .core.getTokenBalances(address, tokenContractAddresses)
-        .then((balance: any) => {
+        .then((balance: Balance) => {
           setBalance(balance);
         });
     } catch (error) {
@@ -89,7 +105,7 @@ export default function Transactions() {
         </div>
 
         <div>
-          {address &&
+          {address && data &&
             data.transfers &&
             data.transfers.length !== 0 &&
             data.transfers.map((item, index) => (
@@ -115,11 +131,11 @@ export default function Transactions() {
 
       <main>
         <p>
-          Address current balance is: &nbsp; 
+          Address current balance is: &nbsp;
           {balance.tokenBalances && balance.tokenBalances[0].tokenBalance}
         </p>
         <p>
-          Sort by 
+          Sort by
           <span
             className={`${styles.red} ${styles.pointer}`}
             onClick={() => getEthereumData(!order)}
@@ -131,3 +147,5 @@ export default function Transactions() {
     </section>
   );
 }
+
+export default Transactions;
