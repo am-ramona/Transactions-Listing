@@ -104,7 +104,7 @@ const Transactions: React.FC = () => {
       </code>
 
       <main className="ml-[14px] sm:p-card rounded-xl bg-[#64646400] border border-solid border-gray grid-in-c transition duration-200 hover:bg-[#6464641a] hover:border-[#c8c8c826] group">
-        <div className="grid grid-cols-gridCard max-w-full md:grid-cols-[repeat(2, 50%)] *:sm:text-sm *:text-[3vw] *:inline-block *:transition *:transform *:motion-reduce:hover:transform-none *:group-hover:translate-x-1">
+        <div className="grid grid-cols-gridCard max-w-full md:grid-cols-[repeat(2, 50%)] *:sm:text-sm *:text-xs/[20px] *:inline-block *:transition *:transform *:motion-reduce:hover:transform-none *:group-hover:translate-x-1">
           <span> Amount </span>
           <span> Timestamp </span>
           <span></span>
@@ -115,7 +115,7 @@ const Transactions: React.FC = () => {
             data.transfers &&
             data.transfers.length !== 0 &&
             data.transfers.map((item, index) => (
-              <div key={index} className="grid grid-cols-gridCard md:grid-cols-[repeat(2, 50%)] max-w-full *:text-[3vw] *:sm:text-sm *:inline-block *:transition *:transform *:motion-reduce:hover:transform-none *:group-hover:translate-x-1 *:break-words">
+              <div key={index} className="grid grid-cols-gridCard md:grid-cols-[repeat(2, 50%)] max-w-full *:text-xs/[17px] *:sm:text-sm *:inline-block *:transition *:transform *:motion-reduce:hover:transform-none *:group-hover:translate-x-1 *:break-words">
                 <span>{item.value}</span>
                 <span>{item.metadata.blockTimestamp}</span>
                 <Link
