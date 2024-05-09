@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { Network, AssetTransfersCategory } from "alchemy-sdk";
 import { AlchemyMultichainClient } from "../../../alchemy-multichain-client";
+// import { Roboto } from 'next/font/google';
 import styles from "@/styles/Home.module.css";
 
 interface Data {
@@ -20,6 +21,12 @@ interface Balance {
   tokenBalances: Array<{ tokenBalance: string | null }>,
   // [x: string | number | symbol]: unknown
 }
+
+// const roboto_mono = Roboto_Mono({
+//   subsets: ['latin'],
+//   weight: '300',
+//   display: 'swap'
+// })
 
 const defaultConfig = {
   apiKey: "oC6F3KjezCjGO5b-S0Wn4uunajlNUB6A",
