@@ -1,24 +1,8 @@
+/// <reference types="../../../types/global" />
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { Network } from "alchemy-sdk";
-import { AlchemyMultichainClient } from "@/alchemy-multichain-client";
-
-interface Receipt {
-    status?: number | undefined;
-    effectiveGasPrice: {
-        _hex: string;
-    };
-}
-
-const defaultConfig = {
-    apiKey: "oC6F3KjezCjGO5b-S0Wn4uunajlNUB6A",
-    network: Network.ETH_MAINNET,
-};
-const overrides = {
-    [Network.MATIC_MAINNET]: { apiKey: "vXOn8o6kX_znYRMaB3lf2i7srDCZsxVH" },
-};
-
-const alchemy = new AlchemyMultichainClient(defaultConfig, overrides);
+import  { alchemy } from "@/utils/constants";
 
 const TransactionDetails: React.FC = () => {
     const router = useRouter();

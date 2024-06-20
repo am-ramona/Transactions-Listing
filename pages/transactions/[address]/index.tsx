@@ -1,44 +1,11 @@
+/// <reference types="../../../types/global" />
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { Network, AssetTransfersCategory } from "alchemy-sdk";
-import { AlchemyMultichainClient } from "../../../alchemy-multichain-client";
-// import { Roboto_Mono } from 'next/font/google';
+import  { alchemy } from "@/utils/constants";
 
-interface Data {
-  transfers: Array<{
-    value: number | null,
-    hash: string,
-    metadata: {
-      blockTimestamp: string
-    }
-  }>,
-  pageKey?: string
-}
-
-interface Balance {
-  tokenBalances: Array<{ tokenBalance: string | null }>,
-  // [x: string | number | symbol]: unknown
-}
-
-// const roboto_mono = Roboto_Mono({
-//   subsets: ['latin'],
-//   weight: '300',
-//   display: 'swap'
-// })
-
-const defaultConfig = {
-  apiKey: "oC6F3KjezCjGO5b-S0Wn4uunajlNUB6A",
-  network: Network.ETH_MAINNET,
-};
-const overrides = {
-  [Network.MATIC_MAINNET]: { apiKey: "vXOn8o6kX_znYRMaB3lf2i7srDCZsxVH" },
-};
-
-const alchemy = new AlchemyMultichainClient(defaultConfig, overrides);
-
-//The below token contract address corresponds to USDT
-const tokenContractAddresses = ["0xdAC17F958D2ee523a2206206994597C13D831ec7"];
+const tokenContractAddresses = [process.env.TOKEN_CONTRACT_ADDRESSES as string];
 
 const Transactions: React.FC = () => {
   const router = useRouter();
@@ -46,7 +13,7 @@ const Transactions: React.FC = () => {
   const block_explorer = router.query.block_explorer as string;
 
   const [data, setData] = useState<Data>();
-  const [balance, setBalance] = useState<Balance>({});
+  const [balance, setBalance] = useState<Balance>({ tokenBalances: [{ tokenBalance: null}]});
   const [order, setOrder] = useState<boolean>(true);
 
   useEffect(() => {
